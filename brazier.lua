@@ -14,6 +14,16 @@ minetest.register_node("brazier:brazier", {
 			minetest.set_node(ab_pos, {name = "brazier:brazier_flame"})
 			end
 	end,
+	--When destroyed remove brazier fire
+	after_destruct = function(pos, oldnode)
+		--If above node is brazier fire
+		local ab_pos = { x = pos.x, y = pos.y + 1, z = pos.z}
+		local n = minetest.env:get_node(ab_pos).name
+		if (n == "brazier:brazier_flame") then
+			--Then remove brazier flame
+			minetest.set_node(ab_pos, {name = "air"})
+			end
+	end,
 })
 
 --Register crafting recipie for brazier node
