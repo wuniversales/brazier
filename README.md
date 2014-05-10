@@ -9,4 +9,4 @@ Textures are liscenced CC0
 Dependencies:
 Fire
 
-For more info see: https://forum.minetest.net/viewtopic.php?id=6154
+For more info see: https://forum.minetest.net/viewtopic.php?f=9&t=9273

@@ -16,6 +16,16 @@ minetest.register_node("braziers:brazier", {
 	end,
 })
 
+--Register crafting recipie for brazier node
+minetest.register_craft({
+output = "braziers:brazier",
+recipe = {
+{'', 'default:torch', ''},
+{'default:cobble', 'default:cobble', 'default:cobble'},
+{'default:cobble', 'default:cobble', 'default:cobble'},
+}
+})
+
 --Adds fake fire node
 --It's a copy of the basic fire node, but it doesn't disappear
 minetest.register_node("braziers:brazier_flame", {
