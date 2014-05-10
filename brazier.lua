@@ -11,7 +11,7 @@ minetest.register_node("brazier:brazier", {
 		local n = minetest.env:get_node(ab_pos).name
 		if (n == "air") then
 			--Then set brazier flame
-			minetest.set_node(ab_pos, {name = "braziers:brazier_flame"})
+			minetest.set_node(ab_pos, {name = "brazier:brazier_flame"})
 			end
 	end,
 })
