@@ -1,9 +1,9 @@
 --Adds Brazier node
-minetest.register_node("braziers:brazier", {
+minetest.register_node("brazier:brazier", {
 	description = "Brazier",
 	drawtype = "normal",
 	paramtype = light,
-	tiles = {"braziers_brazier.png"},
+	tiles = {"brazier_brazier.png"},
 	groups = {cracky = 3, stone = 1},
 	--When punched set fire above
 	on_punch = function(pos, node, puncher, pointed_thing)
@@ -18,7 +18,7 @@ minetest.register_node("braziers:brazier", {
 
 --Register crafting recipie for brazier node
 minetest.register_craft({
-output = "braziers:brazier",
+output = "brazier:brazier",
 recipe = {
 {'', 'default:torch', ''},
 {'default:cobble', 'default:cobble', 'default:cobble'},
@@ -28,7 +28,7 @@ recipe = {
 
 --Adds fake fire node
 --It's a copy of the basic fire node, but it doesn't disappear
-minetest.register_node("braziers:brazier_flame", {
+minetest.register_node("brazier:brazier_flame", {
 	description = "Brazier Fire",
 	drawtype = "plantlike",
 	tiles = {{
@@ -46,7 +46,7 @@ minetest.register_node("braziers:brazier_flame", {
 
 --Adds ABM to make brazier fire above brazier when there is basic fire nearby
 minetest.register_abm({
-	nodenames = {"braziers:brazier"},
+	nodenames = {"brazier:brazier"},
 	neighbors = {"fire:basic_flame"},
 	interval = 1.0,
 	chance = 1,
@@ -56,7 +56,7 @@ minetest.register_abm({
 		local n = minetest.env:get_node(ab_pos).name
 		if (n == "air" or n == "fire:basic_flame") then
 			--Then set brazier flame
-			minetest.set_node(ab_pos, {name = "braziers:brazier_flame"})
+			minetest.set_node(ab_pos, {name = "brazier:brazier_flame"})
 			end
 	end,
 })

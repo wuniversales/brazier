@@ -1,3 +1,3 @@
-modpath=minetest.get_modpath("braziers")
+modpath=minetest.get_modpath("brazier")
 
 dofile(modpath.."/brazier.lua")
