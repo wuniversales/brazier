@@ -1,9 +1,21 @@
 --Adds Brazier node
 minetest.register_node("brazier:brazier", {
 	description = "Brazier",
-	drawtype = "normal",
-	paramtype = light,
-	tiles = {"brazier_brazier.png"},
+	drawtype = "nodebox",
+	paramtype = "light",
+	tiles = {"brazier_brazier_top.png", "brazier_brazier_side.png", "brazier_brazier_side.png",  "brazier_brazier_side.png", "brazier_brazier_side.png", "brazier_brazier_side.png"},
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.2,-0.2,0.2,-0.2,0.2,-0.2}, --nodebox1
+			{-0.3,0.2,-0.3,0.3,0.3,0.3}, --nodebox2
+			{-0.4,0.3,-0.4,0.4,0.4,0.4}, --nodebox3
+			{-0.5,0.4,-0.5,0.5,0.5,0.5}, --nodebox4
+			{-0.5,-0.5,-0.5,0.5,-0.4,0.5}, --nodebox5
+			{-0.4,-0.4,-0.4,0.4,-0.3,0.4}, --nodebox6
+			{-0.3,-0.3,-0.3,0.3,-0.2,0.3}, --nodebox7
+		},
+	},
 	groups = {cracky = 3, stone = 1},
 	--When punched set fire above
 	on_punch = function(pos, node, puncher, pointed_thing)
