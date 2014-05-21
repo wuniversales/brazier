@@ -1,4 +1,5 @@
-=== Braziers Mod for Minetest ===
+Braziers Mod for Minetest
+============================
 
 This is a mod for Minetest that adds fire braziers.
 
