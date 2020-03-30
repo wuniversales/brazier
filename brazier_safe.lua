@@ -2,13 +2,13 @@
 local mcl = minetest.get_modpath("mcl_core")
 
 if mcl then
-    item1='mcl_core:torch'
-    item2='mcl_core:cobble'
-    item3="mcl_fire:basic_flame"
+    torch='mcl_core:torch'
+    cobble='mcl_core:cobble'
+    basic_flame="mcl_fire:basic_flame"
 else
-    item1='default:torch'
-    item2='default:cobble'
-    item3="fire:basic_flame"
+    torch='default:torch'
+    cobble='default:cobble'
+    basic_flame="fire:basic_flame"
 end
 
 --Adds Brazier node
@@ -55,9 +55,9 @@ minetest.register_node("brazier:brazier_safe", {
 minetest.register_craft({
 output = "brazier:brazier_safe",
 recipe = {
-{'', item1, item2},
-{item2, item2, item2},
-{item2, item2, item2},
+{'', torch, cobble},
+{cobble, cobble, cobble},
+{cobble, cobble, cobble},
 }
 })
 
@@ -81,14 +81,14 @@ minetest.register_node("brazier:brazier_safe_flame", {
 --Adds ABM to make brazier fire above brazier when there is basic fire nearby
 minetest.register_abm({
 	nodenames = {"brazier:brazier_safe"},
-	neighbors = {item3},
+	neighbors = {basic_flame},
 	interval = 1.0,
 	chance = 1,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		--Check if above node is air or fire
 		local ab_pos = { x = pos.x, y = pos.y + 1, z = pos.z}
 		local n = minetest.env:get_node(ab_pos).name
-		if (n == "air" or n == item3) then
+		if (n == "air" or n == basic_flame) then
 			--Then set brazier flame
 			minetest.set_node(ab_pos, {name = "brazier:brazier_safe_flame"})
 			end
